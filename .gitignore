@@ -6,6 +6,7 @@ temp/
 .env
 coverage
 ormconfig.json
+tsconfig.json
 dist
 
 uploads/*

@@ -1,7 +1,14 @@
+// Package imports
 import express, { NextFunction, Request, response, Response } from 'express';
 import cors from 'cors';
-import { routes } from './routes/routes';
-import { AppError } from './errors/app.errors';
+import 'reflect-metadata';
+
+// Route import
+import { routes } from '../routes/app.routes';
+
+// Middlewares imports
+import { AppError } from '../errors/app.errors';
+import '../typeorm/connection.orm';
 
 const app = express();
 
