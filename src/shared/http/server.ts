@@ -1,14 +1,16 @@
 // Package imports
-import express, { NextFunction, Request, response, Response } from 'express';
-import cors from 'cors';
 import 'reflect-metadata';
+import cors from 'cors';
+import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
 
 // Route import
 import { routes } from '../routes/app.routes';
 
 // Middlewares imports
-import { AppError } from '../errors/app.errors';
+import AppError from '../errors/app.errors';
 import '../typeorm/connection.orm';
+import { errors } from 'celebrate';
 
 const app = express();
 
@@ -19,15 +21,17 @@ app.use(express.json());
 // Route Middleware
 app.use(routes);
 
-// Error Middleware
+// Error Middlewares
+app.use(errors());
+
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   if (error instanceof AppError) {
-    return response
+    return res
       .status(error.statusCode)
       .json({ status: 'error', message: error.message });
   }
 
-  return response
+  return res
     .status(500)
     .json({ status: 'error', message: 'Internal Server Error' });
 });

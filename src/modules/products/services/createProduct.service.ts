@@ -1,4 +1,4 @@
-import { AppError } from 'src/shared/errors/app.errors';
+import AppError from 'src/shared/errors/app.errors';
 import { getCustomRepository } from 'typeorm';
 import { Product } from '../typeorm/entities/product.entity';
 import { ProductRepository } from '../typeorm/repositories/product.repository';
@@ -15,7 +15,7 @@ export default class createProductService {
     const productExists = await productsRepository.findByName(name);
 
     if (productExists) {
-      throw new AppError('This product already exists', 300);
+      throw new AppError('This product already exists', 500);
     }
     const product = productsRepository.create({ name, price, quantity });
 
