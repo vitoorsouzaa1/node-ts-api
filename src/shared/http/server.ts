@@ -8,15 +8,17 @@ import 'express-async-errors';
 import { routes } from '../routes/app.routes';
 
 // Middlewares imports
-import AppError from '../errors/app.errors';
+import AppError from '@shared/errors/app.errors';
 import '../typeorm/connection.orm';
 import { errors } from 'celebrate';
+import uploadConfig from '@config/upload.config';
 
 const app = express();
 
 app.use(cors());
 
 app.use(express.json());
+app.use('/files', express.static(uploadConfig.directory));
 
 // Route Middleware
 app.use(routes);
