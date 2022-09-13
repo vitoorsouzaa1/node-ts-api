@@ -6,7 +6,7 @@ import UsersController from '../controller/user.controller';
 import UsersAvatarController from '../avatar/userAvatar.controller';
 import { isAuthenticated } from '@shared/middlewares/auth.middleware';
 
-export const usersRouter = Router();
+const usersRouter = Router();
 const usersController = new UsersController();
 const usersAvatarController = new UsersAvatarController();
 
@@ -31,3 +31,5 @@ usersRouter.patch(
   upload.single('avatar'),
   usersAvatarController.update
 );
+
+export default usersRouter;
