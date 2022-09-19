@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
 import SessionsController from './sessions.controller';
 
-export const sessionsRouter = Router();
+const sessionsRouter = Router();
 const sessionsController = new SessionsController();
 
 sessionsRouter.post(
@@ -15,3 +15,5 @@ sessionsRouter.post(
   }),
   sessionsController.create
 );
+
+export default sessionsRouter;
