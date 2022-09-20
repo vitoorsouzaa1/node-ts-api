@@ -11,7 +11,7 @@ interface ITemplateVariables {
 }
 
 interface IMailTemplateParse {
-  template: string;
+  file: string;
   variables: ITemplateVariables;
 }
 interface ISendMail {
