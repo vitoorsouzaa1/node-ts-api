@@ -4,14 +4,14 @@ import Customer from '../typeorm/entities/customer.entity';
 import CustomersRepository from '../typeorm/repositories/customers.repository';
 
 interface IRequest {
-  user_id: string;
+  id: string;
 }
 
 export default class deleteCustomerService {
-  public async execute({ user_id }: IRequest): Promise<void> {
+  public async execute({ id }: IRequest): Promise<void> {
     const customerRepository = getCustomRepository(CustomersRepository);
 
-    const customer = await customerRepository.findById(user_id);
+    const customer = await customerRepository.findById(id);
 
     if (!customer) {
       throw new AppError('Customer not found.', 401);

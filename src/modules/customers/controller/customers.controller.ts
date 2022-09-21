@@ -46,11 +46,11 @@ export default class customersController {
   }
 
   public async delete(req: Request, res: Response): Promise<Response> {
-    const { user_id } = req.params;
+    const { id } = req.params;
 
     const deleteCustomer = new deleteCustomerService();
 
-    await deleteCustomer.execute({ user_id });
+    await deleteCustomer.execute({ id });
 
     return res.json([]);
   }
