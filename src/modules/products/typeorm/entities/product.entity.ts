@@ -2,14 +2,19 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import OrdersProducts from '../../../orders/typeorm/entities/ordersProducts.entity';
 
 @Entity('products')
-export class Product {
+export default class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @OneToMany(() => OrdersProducts, (product_orders) => product_orders.product)
+  product_orders: OrdersProducts[];
 
   @Column()
   name: string;
