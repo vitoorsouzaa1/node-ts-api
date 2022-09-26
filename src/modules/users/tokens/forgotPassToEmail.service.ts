@@ -1,9 +1,9 @@
-import AppError from '@shared/errors/app.errors';
+import AppError from '../../../shared/errors/app.errors';
 import path from 'path';
 import { getCustomRepository } from 'typeorm';
 import UserTokensRepository from '../typeorm/repositories/userTokens.repository';
 import UserRepository from '../typeorm/repositories/users.repository';
-import EtherealMail from '@config/mailer/etherealMail';
+import EtherealMail from '../../../config/mailer/etherealMail';
 
 interface IRequest {
   email: string;
@@ -40,7 +40,7 @@ export default class forgotPassToEmail {
         file: forgotPassTemplate,
         variables: {
           name: user.name,
-          link: `http://localhost:4444/reset_password?token=${token}`,
+          link: `${process.env.APP_WEB_URL}/reset_password?token=${token}`,
         },
       },
     });
