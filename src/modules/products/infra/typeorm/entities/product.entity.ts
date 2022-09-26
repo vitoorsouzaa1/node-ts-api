@@ -6,14 +6,17 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import OrdersProducts from '../../../orders/typeorm/entities/ordersProducts.entity';
+import OrdersProducts from './product.entity';
 
 @Entity('products')
 export default class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @OneToMany(() => OrdersProducts, (product_orders) => product_orders.product)
+  @OneToMany(
+    () => OrdersProducts,
+    (product_orders) => product_orders.product_orders
+  )
   product_orders: OrdersProducts[];
 
   @Column()
