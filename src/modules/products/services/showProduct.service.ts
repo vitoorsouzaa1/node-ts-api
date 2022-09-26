@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/app.errors';
+import AppError from '../../../shared/errors/app.errors';
 import { getCustomRepository } from 'typeorm';
 import { Product } from '../typeorm/entities/product.entity';
 import { ProductRepository } from '../typeorm/repositories/product.repository';

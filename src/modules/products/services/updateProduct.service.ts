@@ -1,7 +1,8 @@
-import AppError from '@shared/errors/app.errors';
+import AppError from '../../../shared/errors/app.errors';
 import { getCustomRepository } from 'typeorm';
-import { Product } from '../typeorm/entities/product.entity';
-import { ProductRepository } from '../typeorm/repositories/product.repository';
+import Product from '../typeorm/entities/product.entity';
+import ProductRepository from '../typeorm/repositories/product.repository';
+import RedisCache from 'shared/cache/redisCache';
 
 interface IRequest {
   id: string;
@@ -31,6 +32,9 @@ export default class updateProductService {
     product.name = name;
     product.price = price;
     product.quantity = quantity;
+
+    const redisCache = new RedisCache();
+    await redisCache.invalidate('api-vendas-PRODUCT_LIST');
 
     await productsRepository.save(product);
 

@@ -10,8 +10,11 @@ import AppError from '../errors/app.errors';
 import '../typeorm/connection.orm';
 import { errors } from 'celebrate';
 import uploadConfig from '../../config/upload.config';
+import rateLimiter from '../middlewares/rateLimiter.middleware';
 
 export const app = express();
+
+app.use(rateLimiter);
 
 app.use(cors());
 
