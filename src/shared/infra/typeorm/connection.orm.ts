@@ -16,10 +16,10 @@ import { AddProductIdToOrdersProducts1663807859212 } from './migrations/16638078
 
 export const dataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: 'db',
   port: 5432,
   username: 'postgres',
-  password: 'postgres',
+  password: 'docker',
   database: 'apivendas',
   synchronize: true,
   entities: [User, UserToken, Customer, Order, Product, OrdersProducts],
