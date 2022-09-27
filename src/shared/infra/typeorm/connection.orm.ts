@@ -21,6 +21,7 @@ export const dataSource = new DataSource({
   username: 'postgres',
   password: 'postgres',
   database: 'apivendas',
+  synchronize: true,
   entities: [User, UserToken, Customer, Order, Product, OrdersProducts],
   migrations: [
     CreateCustomers1663707815925,

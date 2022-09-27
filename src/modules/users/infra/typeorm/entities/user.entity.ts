@@ -23,7 +23,7 @@ export default class User implements IUser {
   @Exclude()
   password: string;
 
-  @Column()
+  @Column({ nullable: true })
   avatar: string;
 
   @CreateDateColumn()
