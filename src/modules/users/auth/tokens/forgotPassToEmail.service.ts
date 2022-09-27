@@ -15,6 +15,7 @@ export default class forgotPassToEmail {
     @inject('UserTokensRepository')
     private userTokensRepository: IUserTokensRepository
   ) {}
+
   public async execute({ email }: ISendForgotPasswordEmail): Promise<void> {
     const user = await this.usersRepository.findByEmail(email);
 

@@ -21,7 +21,7 @@ export default class customersController {
   public async show(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
 
-    const showCustomer = new showCustomerService();
+    const showCustomer = container.resolve(showCustomerService);
 
     const customer = await showCustomer.execute({ id });
 
@@ -31,7 +31,7 @@ export default class customersController {
   public async create(req: Request, res: Response): Promise<Response> {
     const { name, email } = req.params;
 
-    const createCustomer = new createCustomerService();
+    const createCustomer = container.resolve(createCustomerService);
 
     const customer = await createCustomer.execute({ name, email });
 
@@ -42,7 +42,7 @@ export default class customersController {
     const { name, email } = req.body;
     const { id } = req.params;
 
-    const updateCustomer = new updateCustomerService();
+    const updateCustomer = container.resolve(updateCustomerService);
 
     const customer = await updateCustomer.execute({ id, name, email });
 
@@ -52,7 +52,7 @@ export default class customersController {
   public async delete(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
 
-    const deleteCustomer = new deleteCustomerService();
+    const deleteCustomer = container.resolve(deleteCustomerService);
 
     await deleteCustomer.execute({ id });
 

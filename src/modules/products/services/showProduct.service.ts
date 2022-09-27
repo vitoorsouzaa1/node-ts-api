@@ -1,4 +1,5 @@
 import AppError from '../../../shared/errors/app.errors';
+import 'reflect-metadata';
 import { inject, injectable } from 'tsyringe';
 import { IProductRepository } from '../domain/repositories/IProduct.repository';
 import { IShowProduct } from '../domain/models/IShowProduct.model';

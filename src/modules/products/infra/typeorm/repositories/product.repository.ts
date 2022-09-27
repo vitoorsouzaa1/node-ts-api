@@ -13,7 +13,7 @@ type SearchParams = {
   skip: number;
   take: number;
 };
-export default class ProductRepository implements IProductRepository {
+export default class ProductsRepository implements IProductRepository {
   private ormRepository: Repository<Product>;
 
   constructor() {

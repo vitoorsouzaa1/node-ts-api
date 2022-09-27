@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import resetPasswordService from '../../auth/tokens/forgotPassToEmail.service';
+import resetPasswordService from '../../../users/services/resetPassword.service';
 
 export default class resetPasswordController {
   public async create(req: Request, res: Response): Promise<Response> {

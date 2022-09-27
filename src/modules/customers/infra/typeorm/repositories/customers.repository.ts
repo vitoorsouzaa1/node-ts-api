@@ -3,8 +3,8 @@ import { ICustomersRepository } from '../../../domain/repositories/ICustomers.re
 import { ICustomerPaginate } from '../../../domain/models/ICustomerPaginate.model';
 import { ICreateCustomer } from '../../../domain/models/ICreateCustomer.model';
 import Customer from '../entities/customer.entity';
-import { dataSource } from 'shared/infra/typeorm/connection.orm';
-import { ICustomer } from 'modules/customers/domain/models/ICustomer.model';
+import { dataSource } from '../../../../../shared/infra/typeorm/connection.orm';
+import { ICustomer } from '../../../../../modules/customers/domain/models/ICustomer.model';
 import { SearchParams } from '../../../domain/repositories/ICustomers.repository';
 
 export default class CustomersRepository implements ICustomersRepository {

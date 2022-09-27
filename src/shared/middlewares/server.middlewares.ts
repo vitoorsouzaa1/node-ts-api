@@ -11,6 +11,7 @@ import '../infra/typeorm/connection.orm';
 import { errors } from 'celebrate';
 import uploadConfig from '../../config/upload.config';
 import rateLimiter from '../middlewares/rateLimiter.middleware';
+import '@shared/container/index.container';
 
 export const app = express();
 
