@@ -45,7 +45,7 @@ export default class OrdersRepository implements IOrderRepository {
     return result;
   }
 
-  public async createOrder({ customer, products }): Promise<Order> {
+  public async create({ customer, products }): Promise<Order> {
     const order = this.ormRepository.create({
       customer,
       product_orders: products,

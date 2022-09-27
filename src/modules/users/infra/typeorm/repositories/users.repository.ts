@@ -1,6 +1,6 @@
 import { Repository } from 'typeorm';
 import User from '../entities/user.entity';
-import { IUserRepository } from '../../../domain/repositories/IUser.repository';
+import { IUsersRepository } from '../../../domain/repositories/IUser.repository';
 import { ICreateUser } from '../../../domain/models/ICreateUser.model';
 import { IPaginateUser } from '../../../domain/models/IPaginateUser.model';
 import { dataSource } from '@shared/infra/typeorm/connection.orm';
@@ -10,7 +10,7 @@ type SearchParams = {
   skip: number;
   take: number;
 };
-export default class UserRepository implements IUserRepository {
+export default class UsersRepository implements IUsersRepository {
   private ormRepository: Repository<User>;
 
   constructor() {

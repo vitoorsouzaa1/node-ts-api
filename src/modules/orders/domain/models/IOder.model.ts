@@ -4,7 +4,7 @@ import { ICreateOrderProducts } from './ICreateOrderProducts.model';
 export interface IOrder {
   id: string;
   order?: number;
-  order_products?: ICreateOrderProducts[];
+  product_orders: ICreateOrderProducts[];
   customer: ICustomer;
   created_at: Date;
   updated_at: Date;

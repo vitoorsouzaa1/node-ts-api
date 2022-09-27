@@ -10,7 +10,7 @@ import { ICreateSessions } from '../domain/models/ICreateSession.model';
 @injectable()
 export default class SessionsService {
   constructor(
-    @inject('UserRepository')
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
     @inject('HashProvider')
     private hashProvider: IHashProvider
