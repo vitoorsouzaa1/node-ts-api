@@ -1,27 +1,25 @@
 import AppError from '../../../shared/errors/app.errors';
-import { getCustomRepository } from 'typeorm';
-import Product from '../typeorm/entities/product.entity';
-import ProductRepository from '../typeorm/repositories/product.repository';
-import redisCache from 'shared/cache/redisCache';
+import { inject, injectable } from 'tsyringe';
+import redisCache from '../../../shared/cache/redisCache';
+import { IUpdateProduct } from '../domain/models/IUpdateProduct.model';
+import { IProductRepository } from '../domain/repositories/IProduct.repository';
+import { IProduct } from '../domain/models/IProduct.model';
 
-interface IRequest {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
+@injectable()
 export default class updateProductService {
+  constructor(
+    @inject('ProductsRepository')
+    private productsRepository: IProductRepository
+  ) {}
+
   public async execute({
     id,
     name,
     price,
     quantity,
-  }: IRequest): Promise<Product> {
-    const productsRepository = getCustomRepository(ProductRepository);
-
-    const product = await productsRepository.findOne(id);
-    const productExists = await productsRepository.findByName(name);
+  }: IUpdateProduct): Promise<IProduct> {
+    const product = await this.productsRepository.findById(id);
+    const productExists = await this.productsRepository.findByName(name);
 
     if (!product) {
       throw new AppError('Product not found', 404);
@@ -35,7 +33,7 @@ export default class updateProductService {
 
     await redisCache.invalidate('api-vendas-PRODUCT_LIST');
 
-    await productsRepository.save(product);
+    await this.productsRepository.save(product);
 
     return product;
   }
