@@ -4,6 +4,8 @@
 
 O Projeto **API Vendas** tem como princípio colocar em prática todos os conhecimentos adquiridos com as tecnologias aprendidas durante o bootcamp feito pela plataforma de estudos **Udemy**.
 
+---
+
 ## 🖥️Tecnologias Utilizadas:
 
 - [NodeJS](https://nodejs.org)
@@ -13,12 +15,16 @@ O Projeto **API Vendas** tem como princípio colocar em prática todos os conhec
 - [PostgreSQL](https://www.postgresql.org/)
 - [Redis](https://www.redis.io)
 
+---
+
 ## ➕ Extras do projeto
 
 - O projeto conta com serviço de autenticação **JWT**.
 - O código do projeto foi testado com [JestJS](https://jestjs.io/)
 - O projeto conta com as estrutas de código **SOLID**, e **DDD** (Domain Drive Design).
 - O projeto também conta com um Dockerfile e um docker-compose.
+
+---
 
 ## 📂 Como clonar o projeto:
 
@@ -47,3 +53,7 @@ O Projeto **API Vendas** tem como princípio colocar em prática todos os conhec
     docker-compose up
 
 ```
+
+---
+
+Desenvolvido por: Vitor Souza
