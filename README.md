@@ -20,7 +20,6 @@ O Projeto **API Vendas** tem como princípio colocar em prática todos os conhec
 ## ➕ Extras do projeto
 
 - O projeto conta com serviço de autenticação **JWT**.
-- O código do projeto foi testado com [JestJS](https://jestjs.io/)
 - O projeto conta com as estrutas de código **SOLID**, e **DDD** (Domain Drive Design).
 - O projeto também conta com um Dockerfile e um docker-compose.
 
