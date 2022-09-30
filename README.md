@@ -30,10 +30,18 @@ O Projeto **API Vendas** tem como princípio colocar em prática todos os conhec
     $ cd apivendas
 
     # Instalar dependências:
+      # Com yarn
     yarn install
 
+      # Com npm
+    npm install
+
     # Iniciar o projeto:
+      # Com yarn
     yarn dev
+
+      # Com npm
+    npm run dev
 
     # Iniciando com Docker
     docker-compose up
